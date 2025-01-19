@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChuckApp.MainPage"
+             BackgroundImageSource="background.jpg">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25" VerticalOptions="FillAndExpand">
+
+            <!-- Imagen principal -->
+            <Image
+                Source="chuck_norris.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                SemanticProperties.Description="Chuck Norris" />
+
+            <!-- Título -->
+            <Label
+                Text="Chuck Norris Jokes"
+                Style="{StaticResource Headline}"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <!-- Botón para obtener un chiste aleatorio -->
+            <Button
+                x:Name="RandomJokeBtn"
+                Text="Get Random Joke"
+                Background="Orange"
+                TextColor="White"
+                Clicked="OnRandomJokeClicked"
+                HorizontalOptions="Fill" />
+
+            <!-- Desplegable y botón para obtener un chiste por categoría -->
+            <HorizontalStackLayout Spacing="10">
+                <Picker
+                    x:Name="CategoryPicker"
+                    Title="Select a Category"
+                    WidthRequest="200"
+                    HorizontalOptions="Start" />
+                <Button
+                    x:Name="JokeByCategoryBtn"
+                    Text="Get Joke"
+                    Background="Blue"
+                    TextColor="White"
+                    Clicked="OnJokeByCategoryClicked"
+                    HorizontalOptions="FillAndExpand" />
+            </HorizontalStackLayout>
+
+            <!-- Cuadro de texto y botón para buscar chistes -->
+            <HorizontalStackLayout Spacing="10">
+                <Entry
+                    x:Name="SearchEntry"
+                    Placeholder="Enter a keyword"
+                    WidthRequest="200"
+                    HorizontalOptions="Start" />
+                <Button
+                    x:Name="SearchJokesBtn"
+                    Text="Search Jokes"
+                    Background="Green"
+                    TextColor="White"
+                    Clicked="OnSearchJokesClicked"
+                    HorizontalOptions="FillAndExpand" />
+            </HorizontalStackLayout>
+
+            <!-- Lista de resultados -->
+            <Label
+                x:Name="ResultsLabel"
+                Text="Aquí se mostrará el resultado" 
+                FontSize="Medium" 
+                Padding="10" 
+                TextColor="Black" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

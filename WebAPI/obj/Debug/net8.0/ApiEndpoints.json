@@ -1,0 +1,47 @@
+[
+  {
+    "ContainingType": "WebAPI.Controllers.ChuckNorrisApiController",
+    "Method": "GetRandomJoke",
+    "RelativePath": "jokes/random",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [],
+    "EndpointName": "GetRandomJoke"
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.ChuckNorrisApiController",
+    "Method": "GetJokeByCategory",
+    "RelativePath": "jokes/random/category",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetJokeByCategory"
+  },
+  {
+    "ContainingType": "WebAPI.Controllers.ChuckNorrisApiController",
+    "Method": "SearchJokes",
+    "RelativePath": "jokes/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "SearchJokes"
+  }
+]

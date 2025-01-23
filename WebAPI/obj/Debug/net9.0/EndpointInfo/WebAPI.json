@@ -1,0 +1,67 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "WebAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/jokes/random": {
+      "get": {
+        "tags": [
+          "ChuckNorrisApi"
+        ],
+        "operationId": "GetRandomJoke",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/jokes/random/category": {
+      "get": {
+        "tags": [
+          "ChuckNorrisApi"
+        ],
+        "operationId": "GetJokeByCategory",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/jokes/search": {
+      "get": {
+        "tags": [
+          "ChuckNorrisApi"
+        ],
+        "operationId": "SearchJokes",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

@@ -3,12 +3,17 @@ C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulato
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\ChuckApp.pdb
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Configuration.dll
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Diagnostics.dll
+C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Http.dll
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Logging.dll
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Logging.Debug.dll
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Options.dll
+C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Options.ConfigurationExtensions.dll
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Extensions.Primitives.dll
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Maui.Controls.dll
 C:\Users\Fausto\source\repos\Proyectos\ChuckApp\bin\Debug\net9.0-ios\iossimulator-x64\Microsoft.Maui.Controls.Xaml.dll

@@ -1,0 +1,12 @@
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\WebAPI.exe
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\appsettings.Development.json
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\appsettings.json
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\WebAPI.dll
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\WebAPI.deps.json
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\WebAPI.runtimeconfig.json
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\WebAPI.pdb
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Release\net9.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

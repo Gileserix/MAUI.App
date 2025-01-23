@@ -1,112 +1,130 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
+﻿using ChuckApp.Models; // Importar el espacio de nombres adecuado
+using Newtonsoft.Json;
 
 namespace ChuckApp
 {
     public partial class MainPage : ContentPage
     {
-        private static readonly HttpClient _httpClient = new HttpClient
-        {
-            BaseAddress = new Uri("https://localhost:7216/"), // Cambia aquí al puerto correcto
-            Timeout = TimeSpan.FromSeconds(30)
-        };
+        private readonly HttpClient _httpClient;
 
-        // Lista de categorías de chistes
-        private readonly string[] categories = new string[]
-        {
-            "animal", "career", "celebrity", "dev", "explicit", "fashion",
-            "food", "history", "money", "movie", "music", "political",
-            "religion", "science", "sport", "travel"
-        };
-
-        public MainPage()
+        public MainPage(HttpClient httpClient)
         {
             InitializeComponent();
-
-            // Asignar las categorías al Picker
-            CategoryPicker.ItemsSource = categories;
-
-            // Comprobar si las categorías se asignaron correctamente
-            ResultsLabel.Text = "Categorías asignadas: " + string.Join(", ", categories);
+            _httpClient = httpClient;
         }
 
-        // Obtener un chiste aleatorio
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Inicializar ItemsSource del Picker
+            CategoryPicker.ItemsSource = new string[]
+            {
+                "animal", "career", "celebrity", "dev", "explicit", "fashion",
+                "food", "history", "money", "movie", "music", "political",
+                "religion", "science", "sport", "travel"
+            };
+        }
+
         private async void OnRandomJokeClicked(object sender, EventArgs e)
-        {
-            await CallApiAndDisplayResultAsync("jokes/random");
-        }
-
-        // Obtener un chiste por categoría
-        private async void OnJokeByCategoryClicked(object sender, EventArgs e)
-        {
-            string selectedCategory = CategoryPicker.SelectedItem?.ToString();
-
-            if (string.IsNullOrEmpty(selectedCategory))
-            {
-                await DisplayAlert("Error", "Por favor selecciona una categoría.", "OK");
-                return;
-            }
-
-            string endpoint = $"jokes/random/category?category={selectedCategory}";
-            await CallApiAndDisplayResultAsync(endpoint);
-        }
-
-        // Buscar chistes por palabra clave
-        private async void OnSearchJokesClicked(object sender, EventArgs e)
-        {
-            string query = SearchEntry.Text;
-            if (string.IsNullOrEmpty(query))
-            {
-                await DisplayAlert("Error", "Por favor escribe algo para buscar.", "OK");
-                return;
-            }
-
-            string endpoint = $"jokes/search?query={query}";
-            await CallApiAndDisplayResultAsync(endpoint);
-        }
-
-        // Llamar a la API y mostrar el resultado
-        private async Task CallApiAndDisplayResultAsync(string endpoint)
         {
             try
             {
-                var response = await _httpClient.GetAsync(endpoint);
-
+                var response = await _httpClient.GetAsync("https://webapi20250123162938.azurewebsites.net/jokes/random");
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsStringAsync();
-
-                    try
+                    var json = await response.Content.ReadAsStringAsync();
+                    var joke = JsonConvert.DeserializeObject<ChuckNorrisJoke>(json);
+                    if (joke != null)
                     {
-                        var jokeObject = JsonConvert.DeserializeObject<dynamic>(result);
-
-                        if (jokeObject?.value != null)
-                        {
-                            ResultsLabel.Text = jokeObject.value.ToString();
-                        }
-                        else
-                        {
-                            ResultsLabel.Text = result;
-                        }
+                        ResultsLabel.Text = joke.Value;
                     }
-                    catch
+                    else
                     {
-                        ResultsLabel.Text = result;
+                        ResultsLabel.Text = "Error al deserializar el chiste.";
                     }
                 }
                 else
                 {
-                    await DisplayAlert("Error", $"Error de API: {response.StatusCode}", "OK");
+                    ResultsLabel.Text = "Error al obtener el chiste.";
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", $"No se pudo conectar a la API: {ex.Message}", "OK");
+
+                Console.WriteLine(ex.ToString());
+
+                throw;
+            }
+  
+        }
+
+        private async void OnJokeByCategoryClicked(object sender, EventArgs e)
+        {
+            var category = CategoryPicker.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(category))
+            {
+                ResultsLabel.Text = "Seleccione una categoría.";
+                return;
+            }
+
+            try
+            {
+                var response = await _httpClient.GetAsync($"https://webapi20250123162938.azurewebsites.net/jokes/random/category?category={category}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var joke = JsonConvert.DeserializeObject<ChuckNorrisJoke>(json);
+                    if (joke != null)
+                    {
+                        ResultsLabel.Text = joke.Value;
+                    }
+                    else
+                    {
+                        ResultsLabel.Text = "Error al deserializar el chiste.";
+                    }
+                }
+                else
+                {
+                    ResultsLabel.Text = "Error al obtener el chiste.";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+
+                throw;
+            }
+
+        }
+
+        private async void OnSearchJokesClicked(object sender, EventArgs e)
+        {
+            var query = SearchEntry.Text;
+            if (string.IsNullOrEmpty(query))
+            {
+                ResultsLabel.Text = "Ingrese una palabra clave.";
+                return;
+            }
+
+            var response = await _httpClient.GetAsync($"https://webapi20250123162938.azurewebsites.net/jokes/search?query={query}");
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var searchResponse = JsonConvert.DeserializeObject<ChuckNorrisSearchResponse>(json);
+                if (searchResponse != null && searchResponse.Result != null)
+                {
+                    ResultsLabel.Text = string.Join("\n", searchResponse.Result.Select(j => j.Value));
+                }
+                else
+                {
+                    ResultsLabel.Text = "Error al deserializar los resultados de la búsqueda.";
+                }
+            }
+            else
+            {
+                ResultsLabel.Text = "Error al buscar chistes.";
             }
         }
     }
 }
-

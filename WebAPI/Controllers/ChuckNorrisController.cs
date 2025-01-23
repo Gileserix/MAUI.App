@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error al consumir la API de Chuck Norris");
-                return StatusCode(500, "OcurriÛ un error inesperado");
+                return StatusCode(500, "Ocurri√≥ un error inesperado");
             }
         }
 
@@ -52,12 +52,12 @@ namespace WebAPI.Controllers
 
             try
             {
-                // Verifica si la categorÌa es v·lida
+                // Verifica si la categor√≠a es v√°lida
                 var categoriesResponse = await _httpClient.GetAsync(categoriesApiUrl);
 
                 if (!categoriesResponse.IsSuccessStatusCode)
                 {
-                    return StatusCode((int)categoriesResponse.StatusCode, "Error al obtener las categorÌas disponibles");
+                    return StatusCode((int)categoriesResponse.StatusCode, "Error al obtener las categor√≠as disponibles");
                 }
 
                 var categoriesJson = await categoriesResponse.Content.ReadAsStringAsync();
@@ -65,10 +65,10 @@ namespace WebAPI.Controllers
 
                 if (availableCategories == null || !availableCategories.Contains(category))
                 {
-                    return BadRequest($"La categorÌa '{category}' no es v·lida. CategorÌas disponibles: {string.Join(", ", availableCategories)}");
+                    return BadRequest($"La categor√≠a '{category}' no es v√°lida. Categor√≠as disponibles: {String.Join(", ", availableCategories)}");
                 }
 
-                // Realiza la solicitud al endpoint de la categorÌa
+                // Realiza la solicitud al endpoint de la categor√≠a
                 var response = await _httpClient.GetAsync(apiUrl);
 
                 if (response.IsSuccessStatusCode)
@@ -77,12 +77,12 @@ namespace WebAPI.Controllers
                     return Content(json, "application/json");
                 }
 
-                return StatusCode((int)response.StatusCode, $"Error al obtener un chiste para la categorÌa: {category}");
+                return StatusCode((int)response.StatusCode, $"Error al obtener un chiste para la categor√≠a: {category}");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error al consumir la API de Chuck Norris por categorÌa");
-                return StatusCode(500, "OcurriÛ un error inesperado");
+                _logger.LogError(ex, "Error al consumir la API de Chuck Norris por categor√≠a");
+                return StatusCode(500, "Ocurri√≥ un error inesperado");
             }
         }
 
@@ -107,7 +107,7 @@ namespace WebAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error al buscar chistes en la API de Chuck Norris");
-                return StatusCode(500, "OcurriÛ un error inesperado");
+                return StatusCode(500, "Ocurri√≥ un error inesperado");
             }
         }
     }

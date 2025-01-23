@@ -37,7 +37,8 @@
                     x:Name="CategoryPicker"
                     Title="Select a Category"
                     WidthRequest="200"
-                    HorizontalOptions="Start" />
+                    HorizontalOptions="Start">
+                </Picker>
                 <Button
                     x:Name="JokeByCategoryBtn"
                     Text="Get Joke"

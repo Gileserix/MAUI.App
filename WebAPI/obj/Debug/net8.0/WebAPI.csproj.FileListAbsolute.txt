@@ -34,3 +34,4 @@ C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Debug\net8.0\refint\WebAPI.dll
 C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Debug\net8.0\WebAPI.pdb
 C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Debug\net8.0\WebAPI.genruntimeconfig.cache
 C:\Users\Fausto\source\repos\Proyectos\WebAPI\obj\Debug\net8.0\ref\WebAPI.dll
+C:\Users\Fausto\source\repos\Proyectos\WebAPI\bin\Debug\net8.0\Newtonsoft.Json.dll

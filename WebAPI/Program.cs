@@ -3,7 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-// Configuración de CORS
+// ConfiguraciÃ³n de CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -25,12 +25,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
-app.UseCors("AllowAll"); // Habilita la política de CORS
+app.UseCors("AllowAll"); // Habilita la polÃ­tica de CORS
 
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+await app.RunAsync();

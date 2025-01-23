@@ -1,0 +1,62 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/jokes/random": {
+      "get": {
+        "tags": [
+          "ChuckNorrisApi"
+        ],
+        "operationId": "GetRandomJoke",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/jokes/random/category": {
+      "get": {
+        "tags": [
+          "ChuckNorrisApi"
+        ],
+        "operationId": "GetJokeByCategory",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/jokes/search": {
+      "get": {
+        "tags": [
+          "ChuckNorrisApi"
+        ],
+        "operationId": "SearchJokes",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
